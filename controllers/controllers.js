@@ -1,11 +1,20 @@
+import bcrypt from 'bcryptjs'; // encrypter
 import userModel from "../models/userModel.js";
 
 const userController = {
   createNewUser: async (req, res) => {
     try {
-      const newUser = new userModel(req.body);
+      const { email, gymName, password } = req.body;
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      //Building a new object
+      const newUser = new userModel({
+        email,
+        gymName, // if the name and the value are the same
+        password: hashedPassword
+      });
       const createdUser = await newUser.save();
-      res.json({ message: "User created successfully" });
+      res.json({ status: "success", message: "User created successfully" });
     } catch (error) {
       res.json({ message: "Error. Check all the required fields" });
     }
