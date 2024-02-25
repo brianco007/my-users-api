@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const url = process.env.URL
+const url = process.env.MONGO_URI
 
 mongoose.connect(url)
  .then((data)=>console.log('Connection with MongoDB is OK'))
