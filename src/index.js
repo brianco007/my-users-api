@@ -6,7 +6,7 @@ import mainRouter from "../routers/mainRouter.js";
 import loginRouter from "../routers/loginRouter.js";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5555;
 
 
 app.get("/", (req, res) => {
