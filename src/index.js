@@ -24,3 +24,6 @@ app.use("/login/", loginRouter)
 app.listen(PORT, () => {
   console.log(`Listening from port ${PORT}`);
 });
+
+
+export default app;
