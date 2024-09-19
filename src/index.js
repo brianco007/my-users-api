@@ -14,7 +14,9 @@ app.get("/", (req, res) => {
 });
 
 //Middlewares
-app.use(cors())
+app.use(cors({
+  origin: 'https://nextgympro.web.app'
+}));
 app.use(express.json());
 //Routes
 app.use("/signup/", mainRouter);
